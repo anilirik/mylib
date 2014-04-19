@@ -1,10 +1,8 @@
-mylib
+Деплой-инструкция
 =====
 
-Деплой-инструкция
 
-
-1.Ставим JDK
+1.Ставим JDK7
 
 sudo add-apt-repository ppa:webupd8team/java
 
@@ -36,10 +34,10 @@ sudo chkconfig mongod on
 
 (более полная версия с комментариями http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/)
 
-4. Заполняем базу данных книгами с помощью команды
+4.Заполняем базу данных книгами с помощью команды
 
 mongo db books.js
 
-5. Открываем NetBeans -> File -> Open Project
+5.Открываем NetBeans -> File -> Open Project
 
-6. Нажимаем правой кнопкой на название проекта -> Clean and Build, затем снова нажимаем на проект и выбираем Run
+6.Нажимаем правой кнопкой на название проекта -> Clean and Build, затем снова нажимаем на проект и выбираем Run
