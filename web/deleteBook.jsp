@@ -48,7 +48,7 @@
                         <li><a href="index.jsp">Моя библиотека</a></li>
                         <li><a href="addBook.jsp">Добавить книгу в библиотеку</a></li>
                         <li class="active"><a href="deleteBook.jsp">Удалить книгу из библиотеки</a></li>
-                        <li><a href="takeBook.jsp">Операции с чужими книгами</a></li>
+                        <li><a href="takeBook.jsp">Взять книгу</a></li>
 						<!--<li><a href="login.jsp">Выход из системы</a></li>-->
                     </ul>
                 </div><!--/.nav-collapse -->

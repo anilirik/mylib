@@ -1,3 +1,4 @@
+<%@page import="mai.constantfields.ButtonValues"%>
 <%@page import="mai.constantfields.DBParameters"%>
 <%@page import="com.mongodb.BasicDBObject"%>
 <%@page import="java.util.List"%>
@@ -104,7 +105,7 @@
               <li class="active"><a href="index.jsp">Моя библиотека</a></li>
               <li><a href="addBook.jsp">Добавить книгу в библиотеку</a></li>
               <li><a href="deleteBook.jsp">Удалить книгу из библиотеки</a></li>
-                        <li><a href="takeBook.jsp">Операции с чужими книгами</a></li>
+                        <li><a href="takeBook.jsp">Взять книгу</a></li>
 						<!--<li><a href="login.jsp">Выход из системы</a></li>-->
             </ul>
           </div><!--/.nav-collapse -->
@@ -187,14 +188,14 @@
               // i++;
                if (objLine.get(FieldsOfDB.MY).equals("true") && 
                        objLine.get(FieldsOfDB.IN_LIB).equals("false") ){
-               out.print("<td><input type=\"submit\" class=\"btn btn-danger\" name=\"bookStateButton\" value=\"Отдала \">"+ "  " + objLine.get(FieldsOfDB.COMMENT) + "</td>");
+               out.print("<td><input type=\"submit\" class=\"btn btn-danger\" name=\"bookStateButton\" value=\""+ButtonValues.TAKE_BUTTON+"\">"+ "  " + objLine.get(FieldsOfDB.COMMENT) + "</td>");
                } if (objLine.get(FieldsOfDB.MY).equals("false") && 
                        objLine.get(FieldsOfDB.IN_LIB).equals("true") ){
-               out.print("<td><input type=\"submit\" class=\"btn btn-warning\" name=\"bookStateButton\" value=\"Взял у \">"+  "  " +objLine.get(FieldsOfDB.COMMENT) + "</td>");
+               out.print("<td><input type=\"submit\" class=\"btn btn-warning\" name=\"bookStateButton\" value=\""+ButtonValues.RETURN_BUTTON+"\">"+  "  " +objLine.get(FieldsOfDB.COMMENT) + "</td>");
                }
                if (objLine.get(FieldsOfDB.MY).equals("true") && 
                        objLine.get(FieldsOfDB.IN_LIB).equals("true") ){
-               out.print("<td><input type=\"submit\" class=\"btn btn-success\" name=\"bookStateButton\" value=\"Дать\"></td>");
+               out.print("<td><input type=\"submit\" class=\"btn btn-success\" name=\"bookStateButton\" value=\""+ButtonValues.GIVE_BUTTON+"\"></td>");
                }
                out.print("</form>");
                out.print("</tr>");

@@ -1,3 +1,4 @@
+<%@page import="mai.constantfields.ButtonValues"%>
 <%@page import="mai.constantfields.FieldsOfDB"%>
 <%@page import="com.mongodb.BasicDBObject"%>
 <%@page import="java.util.Enumeration"%>
@@ -55,7 +56,7 @@
                         <li><a href="index.jsp">Моя библиотека</a></li>
                         <li class="active"><a href="addBook.jsp">Добавить книгу в библиотеку</a></li>
                         <li><a href="deleteBook.jsp">Удалить книгу из библиотеки</a></li>
-                        <li><a href="takeBook.jsp">Операции с чужими книгами</a></li>
+                        <li><a href="takeBook.jsp">Взять книгу</a></li>
 						<!--<li><a href="login.jsp">Выход из системы</a></li>-->
                     </ul>
                 </div><!--/.nav-collapse -->
@@ -81,7 +82,7 @@
                                 <label for="genre">Жанр</label>
                                 <input class="form-control" id="genre" name="genre" placeholder="Например, роман">
                             </div>
-                            <button type="submit" class="btn btn-info" >Взять</button>
+                            <button type="submit" class="btn btn-info" ><%=ButtonValues.ADD_BOOK%></button>
                             <input type="hidden" name="addBook" value="takeThis">
                         </form>
         </div>
