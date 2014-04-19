@@ -1,0 +1,1 @@
+mongoimport -d test -c shops data.json

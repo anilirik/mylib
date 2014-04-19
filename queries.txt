@@ -1,0 +1,62 @@
+1. Показать все книги
+db.books.find({ $or: [{my: 'true'}, {inLib: 'true'}]})
+
+2. Показать те, что дал почитать
+db.books.find({ $and: [{my: 'true'}, {inLib: 'false'}]})
+
+3. Показать те, что у меня на руках
+db.books.find({inLib: 'true'});
+
+4. Добавить книги
+db.books.insert({name: 'Война и мир', author: 'Л.Н. Толстой', year: 1869, genre:'военный роман', my: 'true', inLib: 'true'})
+db.books.insert({name: 'Анна Каренина', author: 'Л.Н. Толстой', year: 1877, genre:'роман', my: 'true', inLib: 'false', comment: 'Вове'})
+db.books.insert({name: 'Воскресение', author: 'Л.Н. Толстой', year: 1899, genre:'роман', my: 'true', inLib: 'false', comment: 'Вове'})
+db.books.insert({name: 'Детство', author: 'Л.Н. Толстой', year: 1852, genre:'повесть', my: 'true', inLib: 'true'})
+db.books.insert({name: 'Игрок', author: 'Ф.М. Достоевский', year: 1867, genre:'роман', my: 'true', inLib: 'true'})
+db.books.insert({name: 'Бедные люди', author: 'Ф.М. Достоевский', year: 1846, genre:'спекулятивная фантастика', my: 'false', inLib: 'true', comment: 'Ивана Ивановича'})
+db.books.insert({name: 'Идиот', author: 'Ф.М. Достоевский', year: 1869, genre:'роман', my: 'true', inLib: 'true'})
+db.books.insert({name: 'Братья Карамазовы', author: 'Ф.М. Достоевский', year: 1880, genre:'философский роман', my: 'true', inLib: 'true'})
+db.books.insert({name: 'Голова профессора Доуэля', author: 'А.Р. Беляев', year: 1925, genre:'научная фантастика', my: 'true', inLib: 'true'})
+db.books.insert({name: 'Человек-амфибия', author: 'А.Р. Беляев', year: 1928, genre:'спекулятивная фантастика', my: 'true', inLib: 'true'})
+db.books.insert({name: 'Госпожа Бовари', author: 'Гюстав Флобер', year: 1856, genre:'реализм', my: 'true', inLib: 'true'})
+db.books.insert({name: 'Красное и чёрное', author: 'Стендаль', year: 1830, genre:'художественная литература', my: 'true', inLib: 'true'})
+db.books.insert({name: 'Америка', author: 'Франц Кафка', year: 1927, genre:'спекулятивная фантастика', my: 'true', inLib: 'true'})
+db.books.insert({name: 'Превращение', author: 'Франц Кафка', year: 1915, genre:'новелла', my: 'true', inLib: 'true'})
+db.books.insert({name: 'Процесс', author: 'Франц Кафка', year: 1925, genre:'роман', my: 'true', inLib: 'true'})
+db.books.insert({name: 'Защита Лужина', author: 'В.В. Набоков', year: 1930, genre:'роман', my: 'true', inLib: 'false', comment: 'Коле Фёдорову'})
+db.books.insert({name: 'Соглядатай', author: 'В.В. Набоков', year: 1930, genre:'повесть', my: 'true', inLib: 'true'})
+db.books.insert({name: 'Здравствуй, грусть', author: 'Франсуаза Саган', year: 1954, genre:'роман', my: 'true', inLib: 'true'})
+db.books.insert({name: 'Одноэтажная Америка', author: 'И. Ильф, Е. Петров', year: 1937, genre:'роман', my: 'false', inLib: 'true', comment: 'Васи Пупкина'})
+db.books.insert({name: 'Гроздья гнева', author: 'Джон Стейнбек', year: 1939, genre:'роман', my: 'true', inLib: 'true'})
+db.books.insert({name: 'Этой книги нет', author: 'Книги нет', year: 1939, genre:'роман', my: 'false', inLib: 'false', comment: 'Этого коммента быть не должно'})
+
+5. Удалить книгу
+// добавим книгу для удаления
+// db.books.insert({name: 'Ой', author: 'Он', year: 2002, genre:'роман', my: 'true', inLib: 'true', comment: 'Пф'})
+
+
+db.books.remove({name: '_name_', author: '_author_', year: _year_})
+
+Вместо _***_ надо подставить соответствующие значения, выбранные пользователем (здесь и в дальнейшем).
+
+6. Взять у кого-то книгу
+db.books.insert({name: '_name_', author: '_author_', year: _year_, genre: '_genre_', my: 'false', inLib: 'true', comment: '_ownersName_'})
+
+7. Показать книги, которые взял я и сейчас читаю
+db.books.find({$and: [{my: 'false'}, {inLib: 'true'}]})
+
+8. Вернуть книгу
+db.books.remove({name: '_name_', author: '_author_', year: _year_})
+
+9. Отдать кому-то книгу
+db.books.update({name: '_name_', author: '_author_', year: _year_}, {$set: {inLib: 'false', comment: '_holdersName_'}});
+
+10. Кто-то вернул мне книгу
+db.books.update({name: '_name_', author: '_author_', year: _year_}, {$set: {inLib: 'true'}});
+
+11. Добавить в базу одну книгу
+db.books.insert({name: '_name_', author: '_author_', year: _year_, genre: '_genre_', my: 'true', inLib: 'true'})
+
+
+
+Пример строки из "вернуть книгу": "Война и мир (книга Васи Пупкина)"
